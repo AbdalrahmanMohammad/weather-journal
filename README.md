@@ -37,7 +37,7 @@ This project is a Weather Journal application that utilizes Node.js as the backe
     ```
 
 4. **Start the server**:
-    ```bash
+    ```bash 
     node server.js
     ```
 
