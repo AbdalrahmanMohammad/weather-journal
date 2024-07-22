@@ -22,14 +22,31 @@ app.use(cors());
 app.use(express.static('website'));
 
 /* Spin up the server*/
-const port = 3000;
+const port = 3001;
 const server = app.listen(port, listening);
 function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
 // Initialize all route with a callback function
+app.get('/all', getAll);
 
 // Callback function to complete GET '/all'
+function getAll(req, res) {
+    res.send(projectData);
+}
 
-// Post Route
+
+// POST route to add data
+app.post('/add', (req, res) => {
+    const { date, temp, user_response } = req.body;
+
+    // Add data to projectData with the specified structure
+    projectData = {
+        date: date,
+        temp: temp,
+        user_response: user_response
+    };
+
+    res.send({ message: "Data added successfully" });
+});
